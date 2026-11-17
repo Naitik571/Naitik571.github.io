@@ -80,7 +80,7 @@ export async function runIntro(onDone) {
   } catch {}
 
   const { pts, minX, maxX, minY, maxY } = textPoints('NAITIK');
-  const COUNT = Math.min(pts.length, 9000);
+  const COUNT = Math.min(pts.length, 18000);
 
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: FREEZE !== null });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -94,7 +94,7 @@ export async function runIntro(onDone) {
   /* fit the measured glyph box to ~72% of the visible width */
   const viewH = 2 * Math.tan((50 * Math.PI / 180) / 2) * camera.position.z;
   const viewW = viewH * camera.aspect;
-  const scale = (viewW * 0.72) / (maxX - minX);
+  const scale = (viewW * 0.76) / (maxX - minX);
   const cx = (minX + maxX) / 2;
   const cy = (minY + maxY) / 2;
 
@@ -133,10 +133,10 @@ export async function runIntro(onDone) {
   geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
 
   const mat = new THREE.PointsMaterial({
-    size: 0.042,
-    color: 0xdfe6ff,
+    size: 0.05,
+    color: 0xeef2ff,
     transparent: true,
-    opacity: 0.95,
+    opacity: 1,
     depthWrite: false,
     blending: THREE.AdditiveBlending,
     sizeAttenuation: true
@@ -147,9 +147,9 @@ export async function runIntro(onDone) {
 
   /* cheap bloom: same points, three times the size, barely there */
   const glowMat = mat.clone();
-  glowMat.size = 0.14;
-  glowMat.opacity = 0.14;
-  glowMat.color = new THREE.Color(0x7f9dff);
+  glowMat.size = 0.11;
+  glowMat.opacity = 0.22;
+  glowMat.color = new THREE.Color(0x9fb4ff);
   scene.add(new THREE.Points(geo, glowMat));
 
   const t0 = performance.now();
@@ -197,8 +197,8 @@ export async function runIntro(onDone) {
     /* fade out while scattering */
     if (t > HOLD_END) {
       const k = Math.max(0, 1 - (t - HOLD_END) / SCATTER);
-      mat.opacity = 0.95 * k;
-      glowMat.opacity = 0.14 * k;
+      mat.opacity = k;
+      glowMat.opacity = 0.22 * k;
     }
 
     camera.position.x = Math.sin(t * 0.22) * 0.35;

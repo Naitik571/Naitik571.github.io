@@ -4,6 +4,7 @@
    ========================================================================== */
 
 import { CONTENT as C } from './content.js';
+import { runIntro } from './scene.js';
 
 const RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const $  = (sel, root = document) => root.querySelector(sel);
@@ -83,9 +84,19 @@ function initReveal() {
 function boot() {
   fillContent();
   initIndex();
-  initReveal();
   tickClock();
   setInterval(tickClock, 15_000);
+
+  if (new URLSearchParams(location.search).has('nointro')) { initReveal(); return; }
+
+  /* the page waits behind the intro; if anything in there fails, it doesn't */
+  try {
+    runIntro(initReveal);
+  } catch (err) {
+    console.warn('intro skipped:', err);
+    document.getElementById('scene')?.remove();
+    initReveal();
+  }
 }
 
 if (document.readyState === 'loading') {

@@ -3,24 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Naitik — Stand User</title>
+<title>Naitik — design engineer</title>
 <meta name="description" content="Naitik — design engineer. Computer vision, shaders and local models.">
 <meta name="theme-color" content="#05060B">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2305060B'/%3E%3Cpath d='M16 5l8 11-8 11-8-11z' fill='%231F3BFF'/%3E%3Cpath d='M16 11l4 5-4 5-4-5z' fill='%23C6FF2E'/%3E%3C/svg%3E">
 <link rel="preload" href="./assets/font/Allo-Regular.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<link rel="preload" href="./assets/font/DelaGothicOne-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
+<div id="scene" class="scene" aria-hidden="true"></div>
+
 <header class="hud">
   <a class="hud-id" href="#title">
     <span class="hud-mark" aria-hidden="true"></span>
     <span class="hud-name" data-name>Naitik</span>
-    <span class="hud-role">/ stand user</span>
+    <span class="hud-role">/ design engineer</span>
   </a>
   <nav class="hud-nav" aria-label="Sections">
     <a href="#work">Work</a>
@@ -39,12 +39,7 @@
 
     <div class="title-grid">
       <div class="title-copy">
-        <p class="kicker" data-reveal>
-          <span class="kicker-line" aria-hidden="true"></span>
-          Stand user · Arcane ⅩⅧ
-        </p>
-
-        <h1 class="display" data-reveal data-reveal-delay="60" data-name>Naitik</h1>
+        <h1 class="display" data-reveal data-name>Naitik</h1>
 
         <p class="lede" data-reveal data-reveal-delay="120" data-bio>
           Design engineer, 18, on a gap year. I build computer vision, shaders and
@@ -60,14 +55,10 @@
 
       <figure class="title-plate" data-reveal data-reveal-delay="40">
         <img src="./assets/img/plate-a.webp" alt="JoJo illustration" width="1200" height="1599" fetchpriority="high">
-        <figcaption>
-          <span>Plate 01</span>
-          <span>ⅩⅧ — The Moon</span>
-        </figcaption>
       </figure>
     </div>
 
-    <ol class="index" id="index" data-reveal data-reveal-delay="240"></ol>
+    <ol class="index" id="index" data-reveal data-reveal-delay="120"></ol>
   </section>
 </main>
 

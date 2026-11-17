@@ -1,16 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hi</title>
-  <style>
-    body {
-      font-size: 50px;
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Naitik — Stand User</title>
+<meta name="description" content="Naitik — design engineer. Computer vision, shaders and local models.">
+<meta name="theme-color" content="#05060B">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2305060B'/%3E%3Cpath d='M16 5l8 11-8 11-8-11z' fill='%231F3BFF'/%3E%3Cpath d='M16 11l4 5-4 5-4-5z' fill='%23C6FF2E'/%3E%3C/svg%3E">
+<link rel="preload" href="./assets/font/Allo-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 <body>
-  <h1>Virus101.exe</h1>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="hud">
+  <a class="hud-id" href="#title">
+    <span class="hud-mark" aria-hidden="true"></span>
+    <span class="hud-name" data-name>Naitik</span>
+    <span class="hud-role">/ stand user</span>
+  </a>
+  <nav class="hud-nav" aria-label="Sections">
+    <a href="#work">Work</a>
+    <a href="#status">Status</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="hud-clock">
+    <span class="hud-time" id="clock">--:--</span>
+    <span class="hud-zone">local time</span>
+  </div>
+</header>
+
+<main id="main">
+  <section class="title" id="title">
+    <div class="title-grain" aria-hidden="true"></div>
+
+    <div class="title-grid">
+      <div class="title-copy">
+        <p class="kicker" data-reveal>
+          <span class="kicker-line" aria-hidden="true"></span>
+          Stand user · Arcane ⅩⅧ
+        </p>
+
+        <h1 class="display" data-reveal data-reveal-delay="60" data-name>Naitik</h1>
+
+        <p class="lede" data-reveal data-reveal-delay="120" data-bio>
+          Design engineer, 18, on a gap year. I build computer vision, shaders and
+          local models — small tools that do one thing properly.
+        </p>
+
+        <dl class="meta" data-reveal data-reveal-delay="180">
+          <div><dt>Based</dt><dd data-location>India</dd></div>
+          <div><dt>State</dt><dd class="live" data-availability>Open to work</dd></div>
+          <div><dt>Now</dt><dd>Three projects, shipping</dd></div>
+        </dl>
+      </div>
+
+      <figure class="title-plate" data-reveal data-reveal-delay="40">
+        <img src="./assets/img/plate-a.webp" alt="JoJo illustration" width="1200" height="1599" fetchpriority="high">
+        <figcaption>
+          <span>Plate 01</span>
+          <span>ⅩⅧ — The Moon</span>
+        </figcaption>
+      </figure>
+    </div>
+
+    <ol class="index" id="index" data-reveal data-reveal-delay="240"></ol>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="foot-inner">
+    <div class="tbc">
+      <svg class="tbc-arrow" viewBox="0 0 44 44" aria-hidden="true">
+        <circle cx="22" cy="22" r="17" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M22 11 L30 22 L24.5 22 L24.5 30 L19.5 30 L19.5 22 L14 22 Z" fill="currentColor"/>
+      </svg>
+      <div>
+        <span class="tbc-text">To be continued</span>
+        <small>© <span data-year>2026</span> <span data-name>Naitik</span></small>
+      </div>
+    </div>
+    <a class="to-top" href="#title">Back to title ⌃</a>
+  </div>
+</footer>
+
+<script type="module" src="./assets/js/main.js"></script>
 </body>
 </html>

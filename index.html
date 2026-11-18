@@ -5,16 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Naitik — design engineer</title>
 <meta name="description" content="Naitik — design engineer. Computer vision, shaders and local models.">
-<meta name="theme-color" content="#05060B">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2305060B'/%3E%3Cpath d='M16 5l8 11-8 11-8-11z' fill='%231F3BFF'/%3E%3Cpath d='M16 11l4 5-4 5-4-5z' fill='%23C6FF2E'/%3E%3C/svg%3E">
-<link rel="preload" href="./assets/font/Allo-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<meta name="theme-color" content="#070A16">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23070A16'/%3E%3Cpath d='M16 5l8 11-8 11-8-11z' fill='%232B49F5'/%3E%3Cpath d='M16 11l4 5-4 5-4-5z' fill='%23C8FF3D'/%3E%3C/svg%3E">
 <link rel="preload" href="./assets/font/DelaGothicOne-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="./assets/font/Allo-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<div id="scene" class="scene" aria-hidden="true"></div>
+<canvas id="flow" class="flow" aria-hidden="true"></canvas>
 
 <header class="hud">
   <a class="hud-id" href="#title">
@@ -34,19 +34,21 @@
 </header>
 
 <main id="main">
-  <section class="title" id="title">
+
+  <!-- ─────────────────────────────────────────────── title ── -->
+  <section class="title" id="title" data-section="0">
     <div class="title-grain" aria-hidden="true"></div>
 
     <div class="title-grid">
       <div class="title-copy">
         <h1 class="display" data-reveal data-name>Naitik</h1>
 
-        <p class="lede" data-reveal data-reveal-delay="120" data-bio>
+        <p class="lede" data-reveal data-reveal-delay="80" data-bio>
           Design engineer, 18, on a gap year. I build computer vision, shaders and
           local models — small tools that do one thing properly.
         </p>
 
-        <dl class="meta" data-reveal data-reveal-delay="180">
+        <dl class="meta" data-reveal data-reveal-delay="140">
           <div><dt>Based</dt><dd data-location>India</dd></div>
           <div><dt>State</dt><dd class="live" data-availability>Open to work</dd></div>
           <div><dt>Now</dt><dd>Three projects, shipping</dd></div>
@@ -58,7 +60,65 @@
       </figure>
     </div>
 
-    <ol class="index" id="index" data-reveal data-reveal-delay="120"></ol>
+    <ol class="index" id="index" data-reveal data-reveal-delay="180"></ol>
+  </section>
+
+  <!-- ──────────────────────────────────────────────── work ── -->
+  <section class="work" id="work" data-section="1">
+    <header class="sec-head">
+      <span class="sec-n">01</span>
+      <h2 class="sec-title">Work</h2>
+      <span class="sec-line" aria-hidden="true"></span>
+      <span class="sec-note">Three stands</span>
+    </header>
+
+    <div class="deck" id="deck"></div>
+  </section>
+
+  <!-- ────────────────────────────────────────────── status ── -->
+  <section class="status" id="status" data-section="2">
+    <header class="sec-head">
+      <span class="sec-n">02</span>
+      <h2 class="sec-title">Status</h2>
+      <span class="sec-line" aria-hidden="true"></span>
+      <span class="sec-note">Who am I?</span>
+    </header>
+
+    <div class="status-grid">
+      <figure class="portrait" data-reveal>
+        <img id="portrait" src="" alt="" width="900" height="900">
+        <div class="portrait-fade" aria-hidden="true"></div>
+        <figcaption>
+          <span class="pl-rank">Rank 1</span>
+          <span class="pl-name" data-name>Naitik</span>
+        </figcaption>
+      </figure>
+
+      <div class="status-copy" data-reveal data-reveal-delay="70">
+        <p class="status-note" id="status-note"></p>
+        <dl class="status-rows" id="status-rows"></dl>
+      </div>
+
+      <figure class="radar" data-reveal data-reveal-delay="120">
+        <svg id="radar" viewBox="0 0 320 320" role="img" aria-label="Stand stats"></svg>
+        <figcaption>Stand stats</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ───────────────────────────────────────────── contact ── -->
+  <section class="contact" id="contact" data-section="3">
+    <header class="sec-head">
+      <span class="sec-n">03</span>
+      <h2 class="sec-title">Contact</h2>
+      <span class="sec-line" aria-hidden="true"></span>
+      <span class="sec-note">Knock 'em dead</span>
+    </header>
+
+    <div class="contact-body">
+      <a class="contact-mail" id="contact-mail" href="#">hello@naitik.my.id</a>
+      <ul class="contact-links" id="contact-links"></ul>
+    </div>
   </section>
 </main>
 
@@ -78,6 +138,6 @@
   </div>
 </footer>
 
-<script type="module" src="./assets/js/main.js"></script>
+<script type="module" src="./assets/js/main.js?v=5"></script>
 </body>
 </html>

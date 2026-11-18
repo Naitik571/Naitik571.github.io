@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>itsgiving — Naitik</title>
+<meta name="description" content="itsgiving — a face-tracked meme camera that publishes to a virtual webcam.">
+<meta name="theme-color" content="#070A16">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23070A16'/%3E%3Cpath d='M16 5l8 11-8 11-8-11z' fill='%232B49F5'/%3E%3Cpath d='M16 11l4 5-4 5-4-5z' fill='%23C8FF3D'/%3E%3C/svg%3E">
+<link rel="preload" href="../../assets/font/DelaGothicOne-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/css/styles.css">
+<link rel="stylesheet" href="../../assets/css/case.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<canvas id="flow" class="flow" aria-hidden="true"></canvas>
+
+<header class="hud">
+  <a class="hud-id" href="../../index.html">
+    <span class="hud-mark" aria-hidden="true"></span>
+    <span class="hud-name">Naitik</span>
+    <span class="hud-role">/ design engineer</span>
+  </a>
+  <nav class="hud-nav" aria-label="Sections">
+    <a href="../../index.html#work">Work</a>
+    <a href="../../index.html#status">Status</a>
+    <a href="../../index.html#contact">Contact</a>
+  </nav>
+  <div class="hud-clock">
+    <span class="hud-time" id="clock">--:--</span>
+    <span class="hud-zone">local time</span>
+  </div>
+</header>
+
+<main id="main">
+  <article class="case" data-section="1">
+
+    <p class="case-top">
+      <a href="../../index.html#work">← Work</a>
+      <span class="sep">/</span>
+      <span>Case 01</span>
+      <span class="sep">/</span>
+      <span>2026</span>
+    </p>
+
+    <h1 class="case-title">itsgiving</h1>
+
+    <p class="case-lede">
+      A face-tracked camera that turns your expressions into meme reactions and
+      publishes them as a virtual webcam — so they land in Discord, OBS or any
+      call, without a second screen.
+    </p>
+
+    <dl class="case-meta">
+      <div><dt>Year</dt><dd>2026</dd></div>
+      <div><dt>Role</dt><dd>Everything — concept, code, calibration</dd></div>
+      <div><dt>Stack</dt><dd>Python · MediaPipe · OpenCV · OBS</dd></div>
+      <div><dt>State</dt><dd>Running locally</dd></div>
+    </dl>
+
+    <figure class="case-plate">
+      <img src="../../assets/img/plate-b.webp" alt="" width="1200" height="1598">
+      <figcaption>Plate — case 01</figcaption>
+    </figure>
+
+    <div class="case-body">
+      <aside class="case-rail">
+        <p class="rail-rank">Rank 1</p>
+        <p class="rail-name">itsgiving</p>
+        <ul class="rail-list">
+          <li>Year<b>2026</b></li>
+          <li>Kind<b>Tool</b></li>
+          <li>Surface<b>Virtual camera</b></li>
+        </ul>
+      </aside>
+
+      <div class="case-text">
+        <h2>The brief</h2>
+        <p>
+          Reaction images need a second screen, a folder, and a pause in the
+          conversation. I wanted the reaction to come from my actual face, live,
+          in the call — no alt-tab, no overlays, nothing the other side has to
+          install.
+        </p>
+        <p>
+          <!-- PLACEHOLDER: replace with your own account of why you built it -->
+          The constraint that shaped it: whatever comes out has to look like a
+          normal webcam feed to every app, because that's the only surface I
+          can't control.
+        </p>
+
+        <div class="case-stats">
+          <div><p class="stat-n">478</p><p class="stat-k">Face landmarks</p></div>
+          <div><p class="stat-n">52</p><p class="stat-k">Blendshapes</p></div>
+          <div><p class="stat-n">13</p><p class="stat-k">Reactions</p></div>
+          <div><p class="stat-n">7s</p><p class="stat-k">Calibration</p></div>
+        </div>
+
+        <h2>How it works</h2>
+        <p>
+          MediaPipe reads the face once per frame and hands back both a dense
+          landmark mesh and 52 expression weights. The weights are the useful
+          part — they're already normalised, so a smile is a smile regardless of
+          how far from the camera I'm sitting.
+        </p>
+
+        <ol class="case-steps">
+          <li>
+            <div>
+              <b>Calibrate once</b>
+              <span>Seven seconds of neutral face, then a per-face baseline is written to <code>calibration.json</code>. Every reading after that is measured against it, not against a global average.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <b>Match a pose</b>
+              <span>Twelve named reactions plus one absurd catch-all. Each one is a small set of weighted conditions rather than a single threshold, so a smirk doesn't trip the laugh.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <b>Publish it</b>
+              <span>The chosen frame is composited and pushed into a virtual camera through OBS, at webcam resolution and frame rate, so the receiving app has no idea.</span>
+            </div>
+          </li>
+        </ol>
+
+        <h2>What it taught me</h2>
+        <p>
+          Per-face calibration was the whole project. The first version used
+          generic thresholds and felt broken — it fired late, or fired on the
+          wrong expression, and there was nothing to tune because the baseline
+          was invisible. Writing the baseline to disk made the failure mode
+          obvious and made the tool feel like it knew me.
+        </p>
+
+        <figure class="case-fig">
+          <img src="../../assets/img/card-1.webp" alt="" width="720" height="960">
+          <figcaption>Placeholder — swap for a real capture from the tool</figcaption>
+        </figure>
+
+        <h2>Next</h2>
+        <p>
+          <!-- PLACEHOLDER -->
+          Blend two reactions instead of cutting between them, and let the
+          calibration drift slowly so it doesn't need redoing when the light
+          changes. After that, a second face — the tool is more fun with two
+          people in frame.
+        </p>
+      </div>
+    </div>
+
+    <div class="case-next">
+      <span>Next case</span>
+      <a href="#">Aurora Core →</a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <div class="foot-inner">
+    <div class="tbc">
+      <svg class="tbc-arrow" viewBox="0 0 44 44" aria-hidden="true">
+        <circle cx="22" cy="22" r="17" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M22 11 L30 22 L24.5 22 L24.5 30 L19.5 30 L19.5 22 L14 22 Z" fill="currentColor"/>
+      </svg>
+      <div>
+        <span class="tbc-text">To be continued</span>
+        <small>© <span data-year>2026</span> Naitik</small>
+      </div>
+    </div>
+    <a class="to-top" href="../../index.html">Back to title ⌃</a>
+  </div>
+</footer>
+
+<script type="module" src="../../assets/js/case.js?v=1"></script>
+</body>
+</html>

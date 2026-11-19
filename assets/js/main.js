@@ -22,7 +22,8 @@ function fillContent() {
 
   const mail = $('#contact-mail');
   if (mail) {
-    mail.textContent = C.email;
+    /* break at the @ when it has to wrap, never mid-name */
+    mail.innerHTML = C.email.replace('@', '<wbr>@');
     mail.href = `mailto:${C.email}`;
   }
 
@@ -58,6 +59,7 @@ const AURA = ['#2B49F5', '#C8FF3D', '#8B6DFF'];
 function initDeck(onAura) {
   const deck = $('#deck');
   if (!deck) return;
+  deck.dataset.count = String(C.projects.length);
 
   deck.innerHTML = C.projects.map((p, i) => `
     <a class="card" href="${p.href}" data-i="${i}" aria-label="${p.name} — ${p.desc}">

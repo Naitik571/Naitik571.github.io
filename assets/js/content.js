@@ -8,18 +8,17 @@
 export const CONTENT = {
   name: 'Naitik',
   role: 'Design Engineer',
-  location: 'India',                    // PLACEHOLDER
+  location: 'Delhi-NCR',
   availability: 'Open to work',
 
   bio: `Design engineer, 18, on a gap year. I build computer vision, shaders and
 local models — small tools that do one thing properly.`,
 
-  email: 'hello@naitik.my.id',          // PLACEHOLDER
+  email: 'naitikvarshney571@gmail.com',
 
   links: [
     { label: 'GitHub',   href: 'https://github.com/Naitik571' },
-    { label: 'Email',    href: 'mailto:hello@naitik.my.id' },   // PLACEHOLDER
-    { label: 'X',        href: '#' }                            // PLACEHOLDER
+    { label: 'Email',    href: 'mailto:naitikvarshney571@gmail.com' }
   ],
 
   /* ---------------------------------------------------------- projects */
@@ -33,26 +32,6 @@ local models — small tools that do one thing properly.`,
       card:  './assets/img/card-1.webp',
       chip:  '478 landmarks',
       href:  './work/itsgiving/'
-    },
-    {
-      slug:  'aurora-core',
-      name:  'Aurora Core',
-      desc:  'Procedural plasma sphere, everything generated in-shader',
-      year:  '2025',
-      tags:  ['Three.js', 'GLSL'],
-      card:  './assets/img/card-2.webp',
-      chip:  'full procedural',
-      href:  '#'
-    },
-    {
-      slug:  'sol',
-      name:  'Sol',
-      desc:  'Solar-system explorer with a real camera rig',
-      year:  '2025',
-      tags:  ['Three.js', 'WebGL'],
-      card:  './assets/img/card-3.webp',
-      chip:  'real camera rig',
-      href:  '#'
     }
   ],
 
@@ -71,10 +50,10 @@ small thing that works than plan a big one that doesn't.`,
       { key: 'Shipping', grade: 'B' }
     ],
     rows: [
-      ['Based',   'India'],                       // PLACEHOLDER
+      ['Based',   'Delhi-NCR'],
       ['State',   'Open to work'],
-      ['Now',     'Three projects, shipping'],
-      ['Tools',   'Python · MediaPipe · Three.js · GLSL']
+      ['Now',     'One project, shipping'],
+      ['Tools',   'Python · MediaPipe · OpenCV']
     ]
   }
 };

@@ -546,6 +546,9 @@ ol { list-style: none; padding: 0; }
   perspective: 1400px;
 }
 
+/* a single project gets more weight than a third of the row */
+.deck[data-count="1"] { grid-template-columns: minmax(0, 460px); }
+
 .card {
   --rx: 0deg;
   --ry: 0deg;
@@ -827,8 +830,9 @@ ol { list-style: none; padding: 0; }
   display: inline-block;
   font-family: var(--display);
   font-weight: 400;
-  font-size: clamp(26px, 5.4vw, 76px);
-  line-height: 1;
+  /* a long address has to stay on one line — size to the string, not the viewport */
+  font-size: clamp(21px, 3.9vw, 58px);
+  line-height: 1.06;
   letter-spacing: -.015em;
   color: var(--bone);
   border-bottom: 2px solid var(--line-2);

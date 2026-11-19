@@ -882,3 +882,80 @@ ol { list-style: none; padding: 0; }
   .portrait { max-width: 420px; }
   .contact-links { gap: 8px 20px; }
 }
+
+/* ============================================================
+   Intro — the deck
+   Overlay is created by assets/js/intro.js; these are its parts.
+   ============================================================ */
+
+html.intro-on body { overflow: hidden; }
+html.intro-on .title-plate img { opacity: 0; }
+
+/* the page chrome stays out of the way until the deck is done — the flow
+   field is still visible behind, which is the point */
+html.intro-on .hud,
+html.intro-on .title-copy,
+html.intro-on .index { opacity: 0; }
+
+.hud, .title-copy, .index { transition: opacity .55s var(--ease); }
+
+.ix {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  overflow: hidden;
+  /* let the flow field glow through — the intro is part of the same page */
+  background: rgba(7, 10, 22, .84);
+}
+
+.ix-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(50% 45% at 50% 46%, rgba(43, 73, 245, .30), transparent 72%);
+}
+
+.ix-marks {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .5;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(62% 62% at 50% 50%, #000, transparent 76%);
+          mask-image: radial-gradient(62% 62% at 50% 50%, #000, transparent 76%);
+}
+
+.ix-card {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--ix-cw, 100px);
+  height: var(--ix-ch, 133px);
+  border: 1px solid rgba(122, 140, 255, .22);
+  background: var(--ine);
+  overflow: hidden;
+  will-change: transform, opacity;
+  transform-origin: 50% 50%;
+}
+
+.ix-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(.9) contrast(1.06) brightness(.92);
+}
+
+.ix-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 26px;
+  transform: translateX(-50%);
+  font: 9px/1 var(--mono);
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--ash);
+}

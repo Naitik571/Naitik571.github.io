@@ -6,6 +6,7 @@
 
 import { CONTENT as C } from './content.js';
 import { startBackdrop } from './backdrop.js';
+import { startIntro } from './intro.js';
 
 const RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const $  = (sel, root = document) => root.querySelector(sel);
@@ -265,6 +266,10 @@ function boot() {
 
   tickClock();
   setInterval(tickClock, 15_000);
+
+  /* the deck runs over everything, once per session */
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(startIntro);
+  else startIntro();
 }
 
 if (document.readyState === 'loading') {

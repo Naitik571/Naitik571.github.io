@@ -108,13 +108,13 @@
     <h2>FAQ (FREQUENTLY ANNOYED QUESTIONS)</h2>
     <dl class="faq">
       <dt>Q: Is this website professional?</dt>
-      <dd>A: It is professionally unprofessional. I contain multitudes.</dd>
-      <dt>Q: Why does it look like this?</dt>
-      <dd>A: Because subtlety is for people with stable sleep schedules.</dd>
+      <dd>A: It's professionally unprofessional. It has a visitor counter that lies and a button that does absolutely nothing. This is the portfolio.</dd>
+      <dt>Q: Why does it look like 1999 had a fever dream?</dt>
+      <dd>A: Because subtlety is for people with stable sleep schedules and I have neither.</dd>
       <dt>Q: Can you build serious stuff too?</dt>
-      <dd>A: Yes. I just also believe websites should have the right to be feral.</dd>
+      <dd>A: Yes. Computer vision, GLSL shaders, local models on a 4060 — I just also believe websites have the right to be feral.</dd>
       <dt>Q: What's your stack?</dt>
-      <dd>A: Python, GLSL, local models, a forum, and a polite amount of spite.</dd>
+      <dd>A: Python, GLSL, local models, Comic Sans, and a polite amount of spite.</dd>
       <dt>Q: Are you actually 18?</dt>
       <dd>A: Yes. Unfortunately my back did not get the memo.</dd>
       <dt>Q: Drop year? So no studying going on?</dt>
@@ -123,8 +123,10 @@
       <dd>A: Discipline. Sleep is also part of the syllabus. 9 baje dinner, 11 baje good night.</dd>
       <dt>Q: Does the forum miss you when you're offline?</dt>
       <dd>A: The forum is my family. We don't talk about the feelings.</dd>
-      <dt>Q: Why the horse emoji in the old title?</dt>
-      <dd>A: It was a phase. A good phase. We don't talk about it.</dd>
+      <dt>Q: What's with Comic Sans?</dt>
+      <dd>A: It's a design choice. A bad one. I stand by it.</dd>
+      <dt>Q: Will this crash my browser?</dt>
+      <dd>A: Probably not. But if your laptop fan spins up, that's just the site saying hello.</dd>
     </dl>
   </div>
 
@@ -201,8 +203,17 @@
 <script>
   document.getElementById('yr').textContent = String(new Date().getFullYear());
 
-  /* fake visitor counter — the old web ran on lies and dreams */
-  document.getElementById('v').textContent = String(100 + Math.floor(Math.random() * 4901));
+  /* visitor counter that actually remembers you (sort of) */
+  const vEl = document.getElementById('v');
+  const key = 'naitik_site_visits';
+  const now = Date.now();
+  const raw = localStorage.getItem(key);
+  let state = { count: 0, last: 0 };
+  try { state = JSON.parse(raw || '{}'); } catch (e) {}
+  if (!state.last || now - state.last > 60 * 60 * 1000) state.count = (state.count || 0) + 1;
+  state.last = now;
+  localStorage.setItem(key, JSON.stringify(state));
+  vEl.textContent = String(100 + state.count);
 
   /* the forbidden button */
   const msgs = [

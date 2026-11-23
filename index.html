@@ -41,6 +41,7 @@
   .warn{background:repeating-linear-gradient(45deg,#000,#000 14px,#ff0 14px,#ff0 28px);padding:14px;text-align:center;margin:10px 0;border:6px solid red;}
   .warn b{background:#000;color:#fff;padding:8px 14px;font-size:clamp(22px,5vw,44px);display:inline-block;font-family:Impact,sans-serif;letter-spacing:2px;}
   .columns{column-count:2;column-gap:26px;}
+  .whois-photo{width:210px;height:210px;object-fit:cover;object-position:top;border:6px double #ff6600;float:right;margin:0 0 10px 16px;box-shadow:0 18px 50px rgba(0,0,0,.65);}
   .hitbox{text-align:center;margin:14px;border:6px ridge #fff;padding:16px;background:radial-gradient(circle,#220044,#000022);}
   .hitbox .num{font:68px Impact,sans-serif;color:#00ff00;background:#000;display:inline-block;padding:8px 20px;border:5px inset #666;text-shadow:0 0 12px #0f0;}
   .blink{animation:bl 0.45s steps(1) infinite;}
@@ -53,6 +54,14 @@
   .philosophy{font-size:20px;color:#ffff00;font-style:italic;text-align:center;margin:10px 0;border-top:2px solid #ff00ff;padding-top:8px;}
   .faq dt{color:#00ffff;font-size:21px;font-weight:bold;margin-top:14px;}
   .faq dd{color:#fff;font-size:19px;margin:4px 0 10px 18px;font-family:Verdana,sans-serif;line-height:1.5;}
+  .gallery{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:10px;}
+  .gal-img{width:220px;height:165px;object-fit:cover;object-position:center;border:6px double #ff6600;box-shadow:0 18px 50px rgba(0,0,0,.65);background:#ffff00;padding:4px;animation:galPop 0.6s both;}
+  .gal-img:nth-child(1){animation-delay:0s}
+  .gal-img:nth-child(2){animation-delay:0.15s}
+  .gal-img:nth-child(3){animation-delay:0.3s}
+  .gal-img:nth-child(4){animation-delay:0.45s}
+  .gal-img:nth-child(5){animation-delay:0.6s}
+  @keyframes galPop{from{opacity:0;transform:scale(.6) rotate(-6deg)}to{opacity:1;transform:scale(1) rotate(0deg)}}
   .btn-chaos{font-family:"Comic Sans MS",cursive;font-size:21px;font-weight:bold;padding:10px 16px;background:linear-gradient(#ffff66,#ff9900);border:5px outset #ffee88;cursor:pointer;color:#000;text-decoration:none;display:inline-block;}
   .btn-chaos:active{border-style:inset;}
   .popup{display:none;margin-top:12px;padding:12px;border:4px ridge #00ffff;background:#110022;color:#fff;font-size:18px;}
@@ -83,10 +92,30 @@
     .cert{font-size:15px;}
     .popup{font-size:16px;}
   }
+  /* intro overlay: falling card */
+  .intro{position:fixed;inset:0;background:#0b0f16;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 1s ease;}
+  .intro-card{width:250px;height:250px;background:#fff;border:14px solid #fff;box-shadow:0 25px 70px rgba(0,0,0,.85);position:relative;overflow:hidden;animation:fallCard 2.4s cubic-bezier(.2,.68,.18,1.08) both;}
+  .intro-card img{width:100%;height:100%;object-fit:cover;display:block;}
+  .intro-card::after{content:"";position:absolute;inset:0;border:6px double #ff6600;pointer-events:none;}
+  .intro-card::before{content:"PHOTO DROP";position:absolute;top:8px;left:8px;font-family:"Comic Sans MS",cursive;font-size:12px;color:#ff00ff;background:#000;padding:2px 6px;border:2px solid #ffff00;}
+  .intro-text{margin-top:14px;font-size:30px;color:#ffff00;font-family:Impact,"Arial Black",sans-serif;letter-spacing:4px;animation:fadeUp 1.2s 2.2s both;}
+  @keyframes fallCard{
+    0%{transform:translateY(-170vh) rotate(-10deg);opacity:0}
+    35%{opacity:1}
+    65%{transform:translateY(70px) rotate(3deg)}
+    85%{transform:translateY(-12px) rotate(-1deg)}
+    100%{transform:translateY(0) rotate(0deg)}
+  }
+  @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+  .page-hidden{opacity:0;visibility:hidden;}
 </style>
 </head>
 <body>
-<div class="page">
+<div class="intro" id="intro">
+  <div class="intro-card"><img src="assets/img/gallery1.jpg" alt="photo drop"/></div>
+  <div class="intro-text">NAITIK.exe</div>
+</div>
+<div class="page page-hidden" id="page">
   <div class="ticker"><marquee scrollamount="14">!!! WELCOME !!! THIS SITE IS SO COOL IT MIGHT COOK YOUR LAPTOP (please do not sue) !!! HOT TIP: TOUCHING GRASS IS OVERRATED, STAY HERE !!! NO COOKIES BECAUSE I ATE THEM !!!</marquee></div>
 
   <h1>NAITIK.exe<small>~*~ design engineer ~*~ 18 ~*~ drop year ~*~ professional weirdo ~*~</small></h1>
@@ -99,6 +128,7 @@
   <div class="box">
     <h2>WHO IS THIS GUY?? <span class="sticker">REAL HUMAN</span></h2>
     <div class="columns">
+      <img class="whois-photo" src="assets/img/whois.png" alt="who is this guy" loading="lazy"/>
       <p><span class="em">HEY.</span> I'm <b>Naitik</b> — 18. Drop year. <i>"Padhai likhai hoti rahegi, pehle ye sab bakloli krlu"</i> mindset. Love to do tech stuff — basically waste my time spending hours on a forum instead of doing my work.</p>
       <p class="philosophy"><i>"Na kisi se jhagda, na kisi se fight. 9 baje dinner, 11 baje good night."</i></p>
     </div>
@@ -111,6 +141,26 @@
       <span class="big">💻 SELF-AWARDED WEB DESIGNER 💻</span>
       Built this entire site in Notepad at 2 AM. No frameworks were consulted. No sleep was obtained.<br>
       <span class="tiny-lie">Valid until I open DevTools and cry</span>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>FAQ (FREQUENTLY ASKED QUESTIONS)</h2>
+    <div class="columns">
+      <p><b>Q: Are you in a relationship?</b><br>A: Always single for beautiful ladies</p>
+      <p><b>Q: Do you actually study?</b><br>A: I study the art of not studying. It's a full-time major</p>
+      <p><b>Q: Is the visitor counter real?</b><br>A: It's as real as my willpower at 2 AM</p>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>PHOTO DROP <span class="sticker">FELL ON THE CARD</span></h2>
+    <div class="gallery">
+      <img src="assets/img/gallery1.jpg" alt="starting image" class="gal-img"/>
+      <img src="assets/img/gallery2.jpg" alt="photo 2" class="gal-img"/>
+      <img src="assets/img/gallery3.jpg" alt="photo 3" class="gal-img"/>
+      <img src="assets/img/gallery4.jpg" alt="photo 4" class="gal-img"/>
+      <img src="assets/img/gallery5.jpg" alt="last pic" class="gal-img"/>
     </div>
   </div>
 
@@ -202,6 +252,15 @@
       setTimeout(function () { doomBox.textContent = "okay you've exhausted my material. this is all I have. please enjoy the rest of the website."; }, 4000);
     }
   });
+
+  /* intro reveal after falling card lands */
+  setTimeout(function () {
+    var intro = document.getElementById('intro');
+    var page = document.getElementById('page');
+    if (intro) { intro.style.opacity = '0'; }
+    if (page) { page.className = page.className.replace(' page-hidden', ''); }
+    setTimeout(function () { if (intro) { intro.style.display = 'none'; } }, 1000);
+  }, 4200);
 </script>
 </body>
 </html>

@@ -1,155 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Naitik — design engineer</title>
-<meta name="description" content="Naitik — design engineer. Computer vision, shaders and local models.">
-<meta name="theme-color" content="#070A16">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23070A16'/%3E%3Cpath d='M16 5l8 11-8 11-8-11z' fill='%232B49F5'/%3E%3Cpath d='M16 11l4 5-4 5-4-5z' fill='%23C8FF3D'/%3E%3C/svg%3E">
-<link rel="preload" href="./assets/font/DelaGothicOne-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="./assets/font/Allo-Regular.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="./assets/css/styles.css?v=9">
-<script>
-/* Lock the page before first paint if the intro is going to run. */
-try {
-  if (!sessionStorage.getItem('nk-intro') &&
-      !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    document.documentElement.classList.add('intro-on');
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>~*~*~*~ N A I T I K ~*~*~*~ the best website on the internet (self-awarded)</title>
+<meta name="description" content="Naitik — design engineer. Computer vision, shaders and local models. Also this website.">
+<meta name="theme-color" content="#ff00ff">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23ff00ff'/%3E%3Ctext y='25' x='6' font-size='24'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E">
+<style>
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:
+      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"><rect width="40" height="40" fill="%23ff00ff"/><text x="4" y="30" font-size="26">%E2%9C%A6</text></svg>'),
+      #000;
+    color:#ffff00;
+    font-family:"Comic Sans MS","Comic Sans",cursive;
+    cursor:crosshair;
   }
-} catch (e) {}
-/* if the intro never finishes, never leave the page locked */
-setTimeout(function () { document.documentElement.classList.remove('intro-on'); }, 6000);
-</script>
+  a{color:#00ffff;font-size:21px;font-weight:bold;}
+  a:hover{color:#ff0000;background:#ffff00;display:inline-block;transform:rotate(-2deg);}
+  .page{max-width:940px;margin:10px auto;border:10px outset #00ff00;background:rgba(0,0,40,0.9);padding:6px;box-shadow:12px 12px 0 #ff00ff;}
+  .ticker{background:lime;color:#000;font-weight:bold;font-size:20px;padding:6px;}
+  h1{
+    text-align:center;font-size:clamp(34px,10vw,104px);margin:12px 0 6px;
+    color:#ff0000;text-shadow:4px 4px #ffff00,8px 8px #00ffff,-2px -2px #fff;
+    font-family:Impact,"Arial Black",sans-serif;letter-spacing:6px;
+    animation:shake 0.16s infinite;
+  }
+  h1 small{display:block;font-size:16px;color:#0ff;letter-spacing:1px;text-shadow:none;font-family:"Comic Sans MS",cursive;animation:none;margin-top:8px;}
+  @keyframes shake{0%,100%{transform:rotate(-1deg)}50%{transform:rotate(1deg)}}
+  .marq-big{font-size:23px;color:#00ff00;}
+  .box{border:6px double #ff6600;margin:10px;padding:13px;background:#000033;position:relative;}
+  .box h2{font-size:40px;color:#ff00ff;margin:0 0 14px;line-height:1.3;text-decoration:underline wavy #ffff00;text-decoration-thickness:3px;text-underline-offset:10px;}
+  .box p{font-size:20px;color:#ffffff;line-height:1.5;margin:10px 0;}
+  .warn{background:repeating-linear-gradient(45deg,#000,#000 14px,#ff0 14px,#ff0 28px);padding:14px;text-align:center;margin:10px 0;border:6px solid red;}
+  .warn b{background:#000;color:#fff;padding:8px 14px;font-size:clamp(22px,5vw,44px);display:inline-block;font-family:Impact,sans-serif;letter-spacing:2px;}
+  .columns{column-count:2;column-gap:26px;}
+  .hitbox{text-align:center;margin:14px;border:6px ridge #fff;padding:16px;background:radial-gradient(circle,#220044,#000022);}
+  .hitbox .num{font:68px Impact,sans-serif;color:#00ff00;background:#000;display:inline-block;padding:8px 20px;border:5px inset #666;text-shadow:0 0 12px #0f0;}
+  .blink{animation:bl 0.45s steps(1) infinite;}
+  @keyframes bl{50%{opacity:0}}
+  ul{font-size:21px;padding-left:26px;} li{margin:12px 0;}
+  .footer{font-family:"Times New Roman",serif;font-size:14px;text-align:center;color:#aaa;padding:18px;}
+  .em{font-size:27px;color:#ff6600;}
+  .sticker{display:inline-block;background:#ff0000;color:#fff;font-family:Impact,sans-serif;padding:4px 10px;border:3px solid #fff;transform:rotate(-8deg);font-size:18px;margin-left:8px;vertical-align:middle;letter-spacing:1px;}
+  .tiny-lie{font-size:12px;color:#88ff88;font-family:"Courier New",monospace;}
+  .faq dt{color:#00ffff;font-size:21px;font-weight:bold;margin-top:14px;}
+  .faq dd{color:#fff;font-size:19px;margin:4px 0 10px 18px;font-family:Verdana,sans-serif;line-height:1.5;}
+  .btn-chaos{font-family:"Comic Sans MS",cursive;font-size:21px;font-weight:bold;padding:10px 16px;background:linear-gradient(#ffff66,#ff9900);border:5px outset #ffee88;cursor:pointer;color:#000;text-decoration:none;display:inline-block;}
+  .btn-chaos:active{border-style:inset;}
+  .popup{display:none;margin-top:12px;padding:12px;border:4px ridge #00ffff;background:#110022;color:#fff;font-size:18px;}
+  .cert{border:5px double #ffd700;padding:14px;margin:12px 0;background:#1a1400;color:#ffeaa0;text-align:center;font-size:17px;}
+  .cert .big{font-size:27px;font-family:"Times New Roman",serif;color:#ffd700;display:block;margin:8px 0;}
+  .spin{display:inline-block;animation:spin 2s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .guest-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:center;margin-top:12px;}
+  .rating{font-size:23px;color:#ffff00;letter-spacing:4px;}
+  .disclaimer{font-size:13px;color:#bdbdbd;line-height:1.5;border-top:2px dashed #ff00ff;padding-top:10px;margin-top:12px;}
+  .proj-link{font-family:Impact,"Arial Black",sans-serif;font-size:23px;letter-spacing:1px;}
+  .badges{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:12px;}
+  .badge{font-family:"Courier New",monospace;font-size:11px;background:#000;color:#0f0;border:2px outset #777;padding:5px 8px;line-height:1.3;text-align:center;}
+  @media (max-width:700px){
+    .columns{column-count:1;}
+    h1{letter-spacing:2px;text-shadow:3px 3px #0ff,6px 6px #ffff00;}
+    .box h2{font-size:28px;text-underline-offset:7px;}
+    .hitbox .num{font-size:42px;}
+    .page{border-width:6px;box-shadow:6px 6px 0 #ff00ff;margin:6px;}
+    .box{border-width:4px;margin:6px;padding:11px;}
+    .box p{font-size:18px;}
+    a{font-size:18px;}
+    .warn{padding:10px;border-width:4px;}
+    .warn b{font-size:20px;letter-spacing:1px;padding:6px 10px;}
+    .ticker{font-size:15px;}
+    .marq-big{font-size:18px;}
+    .hitbox{margin:6px;padding:12px;border-width:4px;}
+    .cert{font-size:15px;}
+    .popup{font-size:16px;}
+  }
+</style>
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
+<div class="page">
+  <div class="ticker"><marquee scrollamount="14">!!! WELCOME !!! THIS SITE IS SO COOL IT MIGHT COOK YOUR LAPTOP (please do not sue) !!! HOT TIP: TOUCHING GRASS IS OVERRATED, STAY HERE !!! NO COOKIES BECAUSE I ATE THEM !!! SOUND OFF IS FOR COWARDS !!!</marquee></div>
 
-<canvas id="flow" class="flow" aria-hidden="true"></canvas>
+  <h1>NAITIK.exe<small>~*~ design engineer ~*~ 18 ~*~ gap year ~*~ professional weirdo ~*~</small></h1>
 
-<header class="hud">
-  <a class="hud-id" href="#title">
-    <span class="hud-mark" aria-hidden="true"></span>
-    <span class="hud-name" data-name>Naitik</span>
-    <span class="hud-role">/ design engineer</span>
-  </a>
-  <nav class="hud-nav" aria-label="Sections">
-    <a href="#work">Work</a>
-    <a href="#status">Status</a>
-    <a href="#contact">Contact</a>
-  </nav>
-  <div class="hud-clock">
-    <span class="hud-time" id="clock">--:--</span>
-    <span class="hud-zone">local time</span>
+  <marquee class="marq-big" direction="right" scrollamount="10">🌈 YOU HAVE ARRIVED 🌈 &nbsp; please wipe your feet before entering the homepage &nbsp; 🌈</marquee>
+
+  <div class="warn"><b>⚠ EXTREMELY UNDER CONSTRUCTION ⚠</b></div>
+  <p class="tiny-lie" style="text-align:center;margin:0 10px 12px;">crew status: 1 (one) raccoon in a hard hat. progress: emotional.</p>
+
+  <div class="box">
+    <h2>WHO IS THIS GUY?? <span class="sticker">REAL HUMAN</span></h2>
+    <div class="columns">
+      <p><span class="em">HEY.</span> I'm <b>Naitik</b> — 18, from India. Gap year. I build <b>computer vision</b>, <b>shaders</b> and <b>local models</b>: small tools that do one thing properly, not ten things badly.</p>
+      <p>My brain at 2 AM: "what if your webcam could be <i>more annoying</i>?" My brain at 2:01 AM: "ship it."</p>
+      <p>The vibe: I like things that feel handmade. Liquid-smooth motion, weird little details, interfaces that argue with you a bit.</p>
+      <p class="blink" style="color:#ff0;font-size:23px;">CURRENTLY OPEN TO WORK!! (cheap to feed: just bring interesting problems)</p>
+    </div>
   </div>
-</header>
 
-<main id="main">
-
-  <!-- ─────────────────────────────────────────────── title ── -->
-  <section class="title" id="title" data-section="0">
-    <div class="title-grain" aria-hidden="true"></div>
-
-    <div class="title-grid">
-      <div class="title-copy">
-        <h1 class="display" data-reveal data-name>Naitik</h1>
-
-        <p class="lede" data-reveal data-reveal-delay="80" data-bio>
-          Design engineer, 18, on a gap year. I build computer vision, shaders and
-          local models — small tools that do one thing properly.
-        </p>
-
-        <dl class="meta" data-reveal data-reveal-delay="140">
-          <div><dt>Based</dt><dd data-location>India</dd></div>
-          <div><dt>State</dt><dd class="live" data-availability>Open to work</dd></div>
-          <div><dt>Now</dt><dd>One project, shipping</dd></div>
-        </dl>
-      </div>
-
-      <figure class="title-plate" data-reveal data-reveal-delay="40">
-        <img src="./assets/img/plate-a.webp" alt="JoJo illustration" width="1200" height="1599" fetchpriority="high">
-      </figure>
-    </div>
-
-    <ol class="index" id="index" data-reveal data-reveal-delay="180"></ol>
-  </section>
-
-  <!-- ──────────────────────────────────────────────── work ── -->
-  <section class="work" id="work" data-section="1">
-    <header class="sec-head">
-      <span class="sec-n">01</span>
-      <h2 class="sec-title">Work</h2>
-      <span class="sec-line" aria-hidden="true"></span>
-      <span class="sec-note">One stand</span>
-    </header>
-
-    <div class="deck" id="deck"></div>
-  </section>
-
-  <!-- ────────────────────────────────────────────── status ── -->
-  <section class="status" id="status" data-section="2">
-    <header class="sec-head">
-      <span class="sec-n">02</span>
-      <h2 class="sec-title">Status</h2>
-      <span class="sec-line" aria-hidden="true"></span>
-      <span class="sec-note">Who am I?</span>
-    </header>
-
-    <div class="status-grid">
-      <figure class="portrait" data-reveal>
-        <img id="portrait" src="" alt="" width="900" height="900">
-        <div class="portrait-fade" aria-hidden="true"></div>
-        <figcaption>
-          <span class="pl-rank">Rank 1</span>
-          <span class="pl-name" data-name>Naitik</span>
-        </figcaption>
-      </figure>
-
-      <div class="status-copy" data-reveal data-reveal-delay="70">
-        <p class="status-note" id="status-note"></p>
-        <dl class="status-rows" id="status-rows"></dl>
-      </div>
-
-      <figure class="radar" data-reveal data-reveal-delay="120">
-        <svg id="radar" viewBox="0 0 320 320" role="img" aria-label="Stand stats"></svg>
-        <figcaption>Stand stats</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- ───────────────────────────────────────────── contact ── -->
-  <section class="contact" id="contact" data-section="3">
-    <header class="sec-head">
-      <span class="sec-n">03</span>
-      <h2 class="sec-title">Contact</h2>
-      <span class="sec-line" aria-hidden="true"></span>
-      <span class="sec-note">Knock 'em dead</span>
-    </header>
-
-    <div class="contact-body">
-      <a class="contact-mail" id="contact-mail" href="#">hello@naitik.my.id</a>
-      <ul class="contact-links" id="contact-links"></ul>
-    </div>
-  </section>
-</main>
-
-<footer class="foot">
-  <div class="foot-inner">
-    <div class="tbc">
-      <svg class="tbc-arrow" viewBox="0 0 44 44" aria-hidden="true">
-        <circle cx="22" cy="22" r="17" fill="none" stroke="currentColor" stroke-width="1.6"/>
-        <path d="M22 11 L30 22 L24.5 22 L24.5 30 L19.5 30 L19.5 22 L14 22 Z" fill="currentColor"/>
-      </svg>
-      <div>
-        <span class="tbc-text">To be continued</span>
-        <small>© <span data-year>2026</span> <span data-name>Naitik</span></small>
-      </div>
-    </div>
-    <a class="to-top" href="#title">Back to title ⌃</a>
+  <div class="box">
+    <h2>MY MAGNUM OPUS <span class="spin">💾</span></h2>
+    <p style="font-size:25px;color:#0ff;margin-bottom:6px;"><b>ITSGIVING</b> (2026)</p>
+    <p>A face-tracked meme camera that publishes straight to a virtual webcam. MediaPipe reads 478 face landmarks and 52 expression weights, Python glues it together, OpenCV does the dirty work, my GPU politely screams.</p>
+    <p>In human words: it watches your actual face and turns it into content, live, in whatever call you're in. No second screen. No alt-tab. Nothing for the other person to install.</p>
+    <p><a class="proj-link" href="./work/itsgiving/">&gt;&gt;&gt; ENTER THE CASE FILE &lt;&lt;&lt;</a> <span class="tiny-lie">(i wrote actual words about it)</span></p>
+    <p><a href="https://github.com/Naitik571" target="_blank" rel="noopener">&gt;&gt; CLICK HERE FOR GITHUB &lt;&lt;</a> <span class="tiny-lie">(contains real code, not just vibes)</span></p>
   </div>
-</footer>
 
-<script src="./assets/vendor/gsap.min.js"></script>
-<script type="module" src="./assets/js/main.js?v=8"></script>
+  <div class="box">
+    <h2>FAQ (FREQUENTLY ANNOYED QUESTIONS)</h2>
+    <dl class="faq">
+      <dt>Q: Is this website professional?</dt>
+      <dd>A: It is professionally unprofessional. I contain multitudes.</dd>
+      <dt>Q: Why does it look like this?</dt>
+      <dd>A: Because subtlety is for people with stable sleep schedules.</dd>
+      <dt>Q: Can you build serious stuff too?</dt>
+      <dd>A: Yes. I just also believe websites should have the right to be feral.</dd>
+      <dt>Q: What's your stack?</dt>
+      <dd>A: Python, MediaPipe, OpenCV, GLSL, local models, caffeine, and a polite amount of spite.</dd>
+      <dt>Q: Are you actually 18?</dt>
+      <dd>A: Yes. Unfortunately my back did not get the memo.</dd>
+      <dt>Q: Why the horse emoji in the old title?</dt>
+      <dd>A: It was a phase. A good phase. We don't talk about it.</dd>
+    </dl>
+  </div>
+
+  <div class="box">
+    <h2>OFFICIAL CERTIFICATIONS</h2>
+    <div class="cert">
+      <span class="big">🏆 CERTIFICATE OF EXCELLENCE 🏆</span>
+      This certifies that <b>NAITIK</b> has survived opening an editor with 47 tabs and one (1) brain cell.<br>
+      <span class="tiny-lie">Issued by the International Council of Making It Work Somehow</span>
+    </div>
+    <div class="cert">
+      <span class="big">⭐ FIVE STAR REVIEW ⭐</span>
+      "he made my webcam weird. 10/10 would install again" — a friend, probably under duress<br>
+      <span class="rating">★★★★★</span>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>LINK DUMP</h2>
+    <ul>
+      <li>📧 Email: <a href="mailto:naitikvarshney571@gmail.com">naitikvarshney571@gmail.com</a> <span class="tiny-lie">(i read it, unless you are a prince with an inheritance)</span></li>
+      <li>🐙 GitHub: <a href="https://github.com/Naitik571" target="_blank" rel="noopener">Naitik571</a> <span class="tiny-lie">(where the code goes to live)</span></li>
+      <li>📁 Case file: <a href="./work/itsgiving/">itsgiving</a> <span class="tiny-lie">(the full unhinged writeup)</span></li>
+      <li>🏠 This site: <a href="https://naitik.my.id">naitik.my.id</a> <span class="tiny-lie">(you are literally here. wild.)</span></li>
+    </ul>
+  </div>
+
+  <div class="box">
+    <h2>DO NOT PRESS THIS BUTTON</h2>
+    <p>Seriously. Don't. I'm telling you as a friend, a developer, and the guy who put a button here.</p>
+    <button class="btn-chaos" id="doom">DO NOT CLICK</button>
+    <div class="popup" id="doom-msg"></div>
+  </div>
+
+  <div class="hitbox">
+    <p style="font-size:19px;margin:0 0 10px;">YOU ARE VISITOR #</p>
+    <div class="num" id="v">999999</div>
+    <p style="color:#ccc;font-size:14px;margin:10px 0 4px;">(this counter is lying to you and that's okay)</p>
+    <p class="tiny-lie">if it goes down when you refresh, that's time travel. don't worry about it.</p>
+  </div>
+
+  <div class="box" style="text-align:center;">
+    <h2>SIGN MY GUESTBOOK</h2>
+    <p>Leave a message. Compliment the site. Roast the site. Offer me a job. All valid.</p>
+    <div class="guest-row">
+      <a href="mailto:naitikvarshney571@gmail.com?subject=I%20signed%20your%20insane%20guestbook&body=dear%20naitik%2C%0A%0Ayour%20website%20made%20my%20eyes%20feel%20feelings.%0A%0A" class="btn-chaos">SIGN GUESTBOOK ✍️</a>
+      <span class="tiny-lie">guestbook tech: email, like a caveman</span>
+    </div>
+    <div class="badges">
+      <span class="badge">MADE WITH<br>NOTEPAD<br>&amp; SPITE</span>
+      <span class="badge">NO<br>FRAMEWORKS<br>HARMED</span>
+      <span class="badge">BEST VIEWED<br>AT<br>3 AM</span>
+      <span class="badge">HTML 4<br>FOREVER<br>♥</span>
+    </div>
+  </div>
+
+  <marquee scrollamount="6" style="background:#ff00ff;color:#000;padding:8px;font-weight:bold;">THANK YOU FOR VISITING MY HUMBLE WEBPAGE • TELL YOUR FRIENDS • PLEASE DO NOT VIEW SOURCE AND JUDGE ME • IF YOU VIEWED SOURCE ANYWAY: HELLO, NERD • PLEASE COME AGAIN</marquee>
+
+  <div class="footer">
+    © 1997–<span id="yr">2026</span> Naitik • best viewed with sunglasses on • no rights reserved, probably
+    <div class="disclaimer">
+      DISCLAIMER: no GPUs were permanently harmed in the making of this website. one was emotionally harmed.
+      this site is 100% handcrafted HTML, 0% framework bloat, 200% bad decisions.
+      if anything here moves too much: congratulations, you have eyes.
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById('yr').textContent = String(new Date().getFullYear());
+
+  /* fake visitor counter — the old web ran on lies and dreams */
+  document.getElementById('v').textContent = String(900000 + Math.floor(Math.random() * 99999));
+
+  /* the forbidden button */
+  const msgs = [
+    "I TOLD YOU NOT TO CLICK. now the site knows your secrets. (it doesn't. but imagine.)",
+    "Congratulations! You have won: absolutely nothing. But with confidence.",
+    "A tiny digital goblin has been dispatched to rearrange your desktop icons. (not really.)",
+    "ERROR 418: I'm a teapot. Also you clicked it. Two crimes.",
+    "You clicked. I respect that. Chaotic energy recognized. 🤝",
+    "The button has filed a restraining order against your cursor.",
+    "This is the part where I pretend something dramatic happens. Nothing happens.",
+    "You have unlocked: nothing. Go outside. (no. stay.)"
+  ];
+  let i = 0;
+  const doom = document.getElementById('doom');
+  const doomBox = document.getElementById('doom-msg');
+  doom.addEventListener('click', function () {
+    doomBox.style.display = 'block';
+    doomBox.textContent = msgs[i % msgs.length];
+    i++;
+    if (i === msgs.length) {
+      setTimeout(function () { doomBox.textContent = "okay you've exhausted my material. this is all I have. please enjoy the rest of the website."; }, 4000);
+    }
+  });
+</script>
 </body>
 </html>

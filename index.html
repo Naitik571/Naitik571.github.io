@@ -6,8 +6,25 @@
 <title>~*~*~*~ N A I T I K ~*~*~*~ the best website on the internet (self-awarded)</title>
 <meta name="description" content="Naitik — design engineer. Computer vision, shaders and local models. Also this website.">
 <meta name="theme-color" content="#0b0f16">
+<meta property="og:type" content="website">
+<meta property="og:title" content="NAITIK.exe — the best website on the internet (self-awarded)">
+<meta property="og:description" content="18. Drop year. Design engineer, allegedly. Built in Notepad at 2 AM, no frameworks consulted, no sleep obtained.">
+<meta property="og:url" content="https://naitik.my.id/">
+<meta property="og:image" content="https://naitik.my.id/assets/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230b0f16'/%3E%3Ctext y='25' x='6' font-size='24' fill='%2300ffff'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E">
 <style>
+  /* self-hosted stand-ins so the joke survives on phones without
+     Comic Sans or Impact installed */
+  @font-face{font-family:'Comic Neue';src:url('assets/font/ComicNeue-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
+  @font-face{font-family:'Comic Neue';src:url('assets/font/ComicNeue-Bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap;}
+  @font-face{font-family:'Anton';src:url('assets/font/Anton-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
+  :root{
+    --comic:"Comic Sans MS","Comic Sans","Comic Neue",cursive;
+    --impact:Impact,"Anton","Arial Black",sans-serif;
+  }
   *{box-sizing:border-box;}
   body{
     margin:0;
@@ -19,34 +36,34 @@
     background-size:auto, 36px 36px, 36px 36px;
     background-attachment:fixed, fixed, fixed;
     color:#ffff00;
-    font-family:"Comic Sans MS","Comic Sans",cursive;
+    font-family:var(--comic);
     cursor:help;
   }
-  a{color:#00ffff;font-size:21px;font-weight:bold;}
+  a{color:#00ffff;font-size:21px;font-weight:bold;cursor:pointer;}
   a:hover{color:#ff0000;background:#ffff00;display:inline-block;transform:rotate(-2deg);}
+  .skip{position:absolute;left:-9999px;top:0;z-index:10000;background:#000;color:#0ff;border:4px solid #0ff;padding:10px 16px;font-size:18px;font-weight:bold;text-decoration:none;}
+  .skip:focus{left:10px;top:10px;}
   .page{max-width:940px;margin:14px auto;border:10px outset #00ff00;background:rgba(0,0,40,0.9);padding:6px;box-shadow:0 18px 50px rgba(0,0,0,.65);}
   .ticker{background:lime;color:#000;font-weight:bold;font-size:20px;padding:6px;}
   h1{
     text-align:center;font-size:clamp(34px,10vw,104px);margin:12px 0 6px;
     color:#ff0000;text-shadow:4px 4px #ffff00,8px 8px #00ffff,-2px -2px #fff;
-    font-family:Impact,"Arial Black",sans-serif;letter-spacing:6px;
+    font-family:var(--impact);letter-spacing:6px;
     animation:shake 0.16s infinite;
   }
-  h1 small{display:block;font-size:16px;color:#0ff;letter-spacing:1px;text-shadow:none;font-family:"Comic Sans MS",cursive;animation:none;margin-top:8px;}
+  h1 small{display:block;font-size:16px;color:#0ff;letter-spacing:1px;text-shadow:none;font-family:var(--comic);animation:none;margin-top:8px;}
   @keyframes shake{0%,100%{transform:rotate(-1deg)}50%{transform:rotate(1deg)}}
   .marq-big{font-size:23px;color:#00ff00;}
   .box{border:6px double #ff6600;margin:10px;padding:13px;background:#000033;position:relative;}
   .box h2{font-size:40px;color:#ff00ff;margin:0 0 14px;line-height:1.3;text-decoration:underline wavy #ffff00;text-decoration-thickness:3px;text-underline-offset:10px;}
   .box p{font-size:20px;color:#ffffff;line-height:1.5;margin:10px 0;}
   .warn{background:repeating-linear-gradient(45deg,#000,#000 14px,#ff0 14px,#ff0 28px);padding:14px;text-align:center;margin:10px 0;border:6px solid red;}
-  .warn b{background:#000;color:#fff;padding:8px 14px;font-size:clamp(22px,5vw,44px);display:inline-block;font-family:Impact,sans-serif;letter-spacing:2px;}
+  .warn b{background:#000;color:#fff;padding:8px 14px;font-size:clamp(22px,5vw,44px);display:inline-block;font-family:var(--impact);letter-spacing:2px;}
   .columns{column-count:2;column-gap:26px;}
   .whois-photo{width:210px;height:210px;object-fit:cover;object-position:top;border:6px double #ff6600;float:right;margin:0 0 10px 16px;box-shadow:0 18px 50px rgba(0,0,0,.65);}
   .hitbox{text-align:center;margin:14px;border:6px ridge #fff;padding:16px;background:radial-gradient(circle,#220044,#000022);}
-  .hitbox .num{font:68px Impact,sans-serif;color:#00ff00;background:#000;display:inline-block;padding:8px 20px;border:5px inset #666;text-shadow:0 0 12px #0f0;}
-  .blink{animation:bl 0.45s steps(1) infinite;}
-  @keyframes bl{50%{opacity:0}}
-  ul{font-size:21px;padding-left:26px;} li{margin:12px 0;}
+  .hitbox .num{font:68px var(--impact);color:#00ff00;background:#000;display:inline-block;padding:8px 20px;border:5px inset #666;text-shadow:0 0 12px #0f0;}
+    ul{font-size:21px;padding-left:26px;} li{margin:12px 0;}
   .footer{font-family:"Times New Roman",serif;font-size:14px;text-align:center;color:#aaa;padding:18px;}
   .em{font-size:27px;color:#ff6600;}
   .sticker{display:inline-block;background:#ff0000;color:#fff;font-family:Impact,sans-serif;padding:4px 10px;border:3px solid #fff;transform:rotate(-8deg);font-size:18px;margin-left:8px;vertical-align:middle;letter-spacing:1px;}
@@ -54,21 +71,20 @@
   .philosophy{font-size:20px;color:#ffff00;font-style:italic;text-align:center;margin:10px 0;border-top:2px solid #ff00ff;padding-top:8px;}
   .faq dt{color:#ffff00;font-size:21px;font-weight:bold;margin-top:14px;}
   .faq dd{color:#00ffff;font-size:19px;margin:4px 0 10px 18px;font-family:Verdana,sans-serif;line-height:1.5;}
-  .btn-chaos{font-family:"Comic Sans MS",cursive;font-size:21px;font-weight:bold;padding:10px 16px;background:linear-gradient(#ffff66,#ff9900);border:5px outset #ffee88;cursor:pointer;color:#000;text-decoration:none;display:inline-block;}
+  .btn-chaos{font-family:var(--comic);font-size:21px;font-weight:bold;padding:10px 16px;background:linear-gradient(#ffff66,#ff9900);border:5px outset #ffee88;cursor:pointer;color:#000;text-decoration:none;display:inline-block;}
   .btn-chaos:active{border-style:inset;}
   .popup{display:none;margin-top:12px;padding:12px;border:4px ridge #00ffff;background:#110022;color:#fff;font-size:18px;}
   .cert{border:5px double #ffd700;padding:14px;margin:12px 0;background:#1a1400;color:#ffeaa0;text-align:center;font-size:17px;}
   .cert .big{font-size:27px;font-family:"Times New Roman",serif;color:#ffd700;display:block;margin:8px 0;}
-  .spin{display:inline-block;animation:spin 2s linear infinite;}
-  @keyframes spin{to{transform:rotate(360deg)}}
-  .guest-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:center;margin-top:12px;}
+    .guest-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:center;margin-top:12px;}
   .rating{font-size:23px;color:#ffff00;letter-spacing:4px;}
   .disclaimer{font-size:13px;color:#bdbdbd;line-height:1.5;border-top:2px dashed #ff00ff;padding-top:10px;margin-top:12px;}
-  .proj-link{font-family:Impact,"Arial Black",sans-serif;font-size:23px;letter-spacing:1px;}
   .badges{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:12px;}
   .badge{font-family:"Courier New",monospace;font-size:11px;background:#000;color:#0f0;border:2px outset #777;padding:5px 8px;line-height:1.3;text-align:center;}
   @media (max-width:700px){
     .columns{column-count:1;}
+    .whois-photo{float:none;display:block;width:100%;height:300px;margin:0 0 14px;}
+    .box h2 .sticker{margin:16px 0 0;transform:rotate(-6deg);}
     h1{letter-spacing:2px;text-shadow:3px 3px #0ff,6px 6px #ffff00;}
     .box h2{font-size:28px;text-underline-offset:7px;}
     .hitbox .num{font-size:42px;}
@@ -101,12 +117,33 @@
     90%{transform:translateY(0) rotate(-1deg)}
     100%{transform:translateY(0) rotate(0deg);opacity:1}
   }
-  .intro-text{margin-top:14px;font-size:30px;color:#ffff00;font-family:Impact,"Arial Black",sans-serif;letter-spacing:4px;animation:fadeUp 1.2s 2.4s both;}
+  .intro-text{margin-top:14px;font-size:30px;color:#ffff00;font-family:var(--impact);letter-spacing:4px;animation:fadeUp 1.2s 2.4s both;}
   @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-  .page-hidden{opacity:0;visibility:hidden;}
+  /* the overlay only exists if JS is on; without JS the page is simply there */
+  #intro{display:none;}
+  html.js-intro #intro{display:flex;}
+  html.js-intro #page{opacity:0;visibility:hidden;}
+
+  /* motion off: no shake, no auto-play drops, no marquees (JS stops those) */
+  @media (prefers-reduced-motion: reduce){
+    h1{animation:none;}
+    .intro-text{animation:none;}
+    .drop-pic{animation:none;opacity:1;}
+    .intro{transition:none;}
+  }
 </style>
+<script>
+  /* the overlay is a JS-only flourish: no JS, no overlay, page just shows */
+  document.documentElement.classList.add('js-intro');
+  setTimeout(function(){
+    document.documentElement.classList.remove('js-intro');
+    var ov = document.getElementById('intro');
+    if (ov) { ov.style.display = 'none'; }
+  }, 6000);
+</script>
 </head>
 <body>
+<a class="skip" href="#page">skip to the good part</a>
 <div class="intro" id="intro">
   <div class="intro-card">
     <img class="drop-pic" src="assets/img/gallery1.jpg" alt="drop 1"/>
@@ -117,12 +154,12 @@
   </div>
   <div class="intro-text">NAITIK.exe</div>
 </div>
-<div class="page page-hidden" id="page">
-  <div class="ticker"><marquee scrollamount="14">!!! WELCOME !!! THIS SITE IS SO COOL IT MIGHT COOK YOUR LAPTOP (please do not sue) !!! HOT TIP: TOUCHING GRASS IS OVERRATED, STAY HERE !!! NO COOKIES BECAUSE I ATE THEM !!!</marquee></div>
+<main class="page" id="page">
+  <div class="ticker"><marquee scrollamount="14" aria-hidden="true">!!! WELCOME !!! THIS SITE IS SO COOL IT MIGHT COOK YOUR LAPTOP (please do not sue) !!! HOT TIP: TOUCHING GRASS IS OVERRATED, STAY HERE !!! NO COOKIES BECAUSE I ATE THEM !!!</marquee></div>
 
   <h1>NAITIK.exe<small>~*~ design engineer ~*~ 18 ~*~ drop year ~*~ professional weirdo ~*~</small></h1>
 
-  <marquee class="marq-big" direction="right" scrollamount="10">🌈 YOU HAVE ARRIVED 🌈 &nbsp; please wipe your feet before entering the homepage &nbsp; 🌈</marquee>
+  <marquee class="marq-big" direction="right" scrollamount="10" aria-hidden="true">🌈 YOU HAVE ARRIVED 🌈 &nbsp; please wipe your feet before entering the homepage &nbsp; 🌈</marquee>
 
   <div class="warn"><b>⚠ EXTREMELY UNDER CONSTRUCTION ⚠</b></div>
   <p class="tiny-lie" style="text-align:center;margin:0 10px 12px;">crew status: 1 (one) raccoon in a hard hat. progress: emotional.</p>
@@ -197,7 +234,7 @@
     </div>
   </div>
 
-  <marquee scrollamount="6" style="background:#ff00ff;color:#000;padding:8px;font-weight:bold;">THANK YOU FOR VISITING MY HUMBLE WEBPAGE • TELL YOUR FRIENDS • PLEASE DO NOT VIEW SOURCE AND JUDGE ME • IF YOU VIEWED SOURCE ANYWAY: HELLO, NERD • PLEASE COME AGAIN</marquee>
+  <marquee scrollamount="6" aria-hidden="true" style="background:#ff00ff;color:#000;padding:8px;font-weight:bold;">THANK YOU FOR VISITING MY HUMBLE WEBPAGE • TELL YOUR FRIENDS • PLEASE DO NOT VIEW SOURCE AND JUDGE ME • IF YOU VIEWED SOURCE ANYWAY: HELLO, NERD • PLEASE COME AGAIN</marquee>
 
   <div class="footer">
     © 1997–<span id="yr">2026</span> Naitik • best viewed with sunglasses on • no rights reserved, probably
@@ -207,7 +244,7 @@
       if anything here moves too much: congratulations, you have eyes.
     </div>
   </div>
-</div>
+</main>
 
 <script>
   document.getElementById('yr').textContent = String(new Date().getFullYear());
@@ -239,14 +276,25 @@
     }
   });
 
-  /* intro reveal after falling card lands */
-  setTimeout(function () {
-    var intro = document.getElementById('intro');
-    var page = document.getElementById('page');
-    if (intro) { intro.style.opacity = '0'; }
-    if (page) { page.className = page.className.replace(' page-hidden', ''); }
-    setTimeout(function () { if (intro) { intro.style.display = 'none'; } }, 1000);
-  }, 3200);
+  /* motion off: kill the marquees too — CSS can't reach them */
+  var RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (RM) {
+    var mq = document.querySelectorAll('marquee');
+    for (var m = 0; m < mq.length; m++) { try { mq[m].stop(); } catch (e) {} }
+  }
+
+  /* reveal after the falling card lands (or immediately if motion is off) */
+  var introEl = document.getElementById('intro');
+  function reveal() {
+    if (introEl) { introEl.style.opacity = '0'; }
+    document.documentElement.classList.remove('js-intro');
+    setTimeout(function () { if (introEl) { introEl.style.display = 'none'; } }, 1000);
+  }
+  if (document.documentElement.classList.contains('js-intro')) {
+    setTimeout(reveal, RM ? 250 : 3200);
+  } else {
+    reveal();
+  }
 </script>
 </body>
 </html>

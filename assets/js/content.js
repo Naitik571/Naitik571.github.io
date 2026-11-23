@@ -22,18 +22,7 @@ local models — small tools that do one thing properly.`,
   ],
 
   /* ---------------------------------------------------------- projects */
-  projects: [
-    {
-      slug:  'itsgiving',
-      name:  'itsgiving',
-      desc:  'Face-tracked meme camera that publishes to a virtual webcam',
-      year:  '2026',
-      tags:  ['Python', 'MediaPipe', 'OpenCV'],
-      card:  './assets/img/card-1.webp',
-      chip:  '478 landmarks',
-      href:  './work/itsgiving/'
-    }
-  ],
+  projects: [],
 
   /* ------------------------------------------------------------ status */
   status: {
@@ -52,8 +41,8 @@ small thing that works than plan a big one that doesn't.`,
     rows: [
       ['Based',   'Delhi-NCR'],
       ['State',   'Open to work'],
-      ['Now',     'One project, shipping'],
-      ['Tools',   'Python · MediaPipe · OpenCV']
+      ['Now',     'Building in public'],
+      ['Tools',   'Python · GLSL · local models']
     ]
   }
 };

@@ -5,22 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>~*~*~*~ N A I T I K ~*~*~*~ the best website on the internet (self-awarded)</title>
 <meta name="description" content="Naitik — design engineer. Computer vision, shaders and local models. Also this website.">
-<meta name="theme-color" content="#ff00ff">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23ff00ff'/%3E%3Ctext y='25' x='6' font-size='24'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#0b0f16">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230b0f16'/%3E%3Ctext y='25' x='6' font-size='24' fill='%2300ffff'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E">
 <style>
   *{box-sizing:border-box;}
   body{
     margin:0;
-    background:
-      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"><rect width="40" height="40" fill="%23ff00ff"/><text x="4" y="30" font-size="26">%E2%9C%A6</text></svg>'),
-      #000;
+    background-color:#0b0f16;
+    background-image:
+      radial-gradient(circle at 50% -10%, rgba(40,58,86,.75), transparent 62%),
+      linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+    background-size:auto, 36px 36px, 36px 36px;
+    background-attachment:fixed, fixed, fixed;
     color:#ffff00;
     font-family:"Comic Sans MS","Comic Sans",cursive;
     cursor:crosshair;
   }
   a{color:#00ffff;font-size:21px;font-weight:bold;}
   a:hover{color:#ff0000;background:#ffff00;display:inline-block;transform:rotate(-2deg);}
-  .page{max-width:940px;margin:10px auto;border:10px outset #00ff00;background:rgba(0,0,40,0.9);padding:6px;box-shadow:12px 12px 0 #ff00ff;}
+  .page{max-width:940px;margin:14px auto;border:10px outset #00ff00;background:rgba(0,0,40,0.9);padding:6px;box-shadow:0 18px 50px rgba(0,0,0,.65);}
   .ticker{background:lime;color:#000;font-weight:bold;font-size:20px;padding:6px;}
   h1{
     text-align:center;font-size:clamp(34px,10vw,104px);margin:12px 0 6px;
@@ -66,7 +70,7 @@
     h1{letter-spacing:2px;text-shadow:3px 3px #0ff,6px 6px #ffff00;}
     .box h2{font-size:28px;text-underline-offset:7px;}
     .hitbox .num{font-size:42px;}
-    .page{border-width:6px;box-shadow:6px 6px 0 #ff00ff;margin:6px;}
+    .page{border-width:6px;box-shadow:0 10px 26px rgba(0,0,0,.7);margin:6px;}
     .box{border-width:4px;margin:6px;padding:11px;}
     .box p{font-size:18px;}
     a{font-size:18px;}
@@ -95,19 +99,17 @@
     <h2>WHO IS THIS GUY?? <span class="sticker">REAL HUMAN</span></h2>
     <div class="columns">
       <p><span class="em">HEY.</span> I'm <b>Naitik</b> — 18, from India. Gap year. I build <b>computer vision</b>, <b>shaders</b> and <b>local models</b>: small tools that do one thing properly, not ten things badly.</p>
-      <p>My brain at 2 AM: "what if your webcam could be <i>more annoying</i>?" My brain at 2:01 AM: "ship it."</p>
+      <p>My brain at 2 AM: "what if this interface could <i>argue with you</i>?" My brain at 2:01 AM: "ship it."</p>
       <p>The vibe: I like things that feel handmade. Liquid-smooth motion, weird little details, interfaces that argue with you a bit.</p>
       <p class="blink" style="color:#ff0;font-size:23px;">CURRENTLY OPEN TO WORK!! (cheap to feed: just bring interesting problems)</p>
     </div>
   </div>
 
   <div class="box">
-    <h2>MY MAGNUM OPUS <span class="spin">💾</span></h2>
-    <p style="font-size:25px;color:#0ff;margin-bottom:6px;"><b>ITSGIVING</b> (2026)</p>
-    <p>A face-tracked meme camera that publishes straight to a virtual webcam. MediaPipe reads 478 face landmarks and 52 expression weights, Python glues it together, OpenCV does the dirty work, my GPU politely screams.</p>
-    <p>In human words: it watches your actual face and turns it into content, live, in whatever call you're in. No second screen. No alt-tab. Nothing for the other person to install.</p>
-    <p><a class="proj-link" href="./work/itsgiving/">&gt;&gt;&gt; ENTER THE CASE FILE &lt;&lt;&lt;</a> <span class="tiny-lie">(i wrote actual words about it)</span></p>
-    <p><a href="https://github.com/Naitik571" target="_blank" rel="noopener">&gt;&gt; CLICK HERE FOR GITHUB &lt;&lt;</a> <span class="tiny-lie">(contains real code, not just vibes)</span></p>
+    <h2>STUFF I BUILT <span class="spin">🧰</span></h2>
+    <p>Drawer contents: <b>computer vision</b> experiments, <b>shader</b> toys, and <b>local models</b> that run on a 4060 and complain about it the whole time.</p>
+    <p>Status: mostly half-finished, occasionally shipped, permanently in beta. If a thing survives a week it gets a README. If it survives a month it gets a shoutout here. Nothing has survived a month.</p>
+    <p><a class="proj-link" href="https://github.com/Naitik571" target="_blank" rel="noopener">&gt;&gt;&gt; SEE THE ACTUAL REPOS &lt;&lt;&lt;</a> <span class="tiny-lie">(code, commits, 3am messages to myself)</span></p>
   </div>
 
   <div class="box">
@@ -120,7 +122,7 @@
       <dt>Q: Can you build serious stuff too?</dt>
       <dd>A: Yes. I just also believe websites should have the right to be feral.</dd>
       <dt>Q: What's your stack?</dt>
-      <dd>A: Python, MediaPipe, OpenCV, GLSL, local models, caffeine, and a polite amount of spite.</dd>
+      <dd>A: Python, GLSL, local models, caffeine, and a polite amount of spite.</dd>
       <dt>Q: Are you actually 18?</dt>
       <dd>A: Yes. Unfortunately my back did not get the memo.</dd>
       <dt>Q: Why the horse emoji in the old title?</dt>
@@ -137,7 +139,7 @@
     </div>
     <div class="cert">
       <span class="big">⭐ FIVE STAR REVIEW ⭐</span>
-      "he made my webcam weird. 10/10 would install again" — a friend, probably under duress<br>
+      "he explained a shader to me and I understood 40% of it. 10/10 would listen again" — a friend, probably under duress<br>
       <span class="rating">★★★★★</span>
     </div>
   </div>
@@ -147,7 +149,7 @@
     <ul>
       <li>📧 Email: <a href="mailto:naitikvarshney571@gmail.com">naitikvarshney571@gmail.com</a> <span class="tiny-lie">(i read it, unless you are a prince with an inheritance)</span></li>
       <li>🐙 GitHub: <a href="https://github.com/Naitik571" target="_blank" rel="noopener">Naitik571</a> <span class="tiny-lie">(where the code goes to live)</span></li>
-      <li>📁 Case file: <a href="./work/itsgiving/">itsgiving</a> <span class="tiny-lie">(the full unhinged writeup)</span></li>
+      <li>📁 Repos: <a href="https://github.com/Naitik571?tab=repositories" target="_blank" rel="noopener">all of it, eventually</a> <span class="tiny-lie">(the ones that compile, anyway)</span></li>
       <li>🏠 This site: <a href="https://naitik.my.id">naitik.my.id</a> <span class="tiny-lie">(you are literally here. wild.)</span></li>
     </ul>
   </div>

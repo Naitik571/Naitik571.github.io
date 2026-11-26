@@ -87,7 +87,7 @@
   .badges{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:12px;}
   .badge{font-family:"Courier New",monospace;font-size:11px;background:#000;color:#0f0;border:2px outset #777;padding:5px 8px;line-height:1.3;text-align:center;}
   @media print{
-    .skip,#intro{display:none !important;}
+    .skip{display:none !important;}
     body{background:#fff !important;}
     .page{display:none !important;}
     body::after{
@@ -132,60 +132,14 @@
   /* the button learns to run */
   #doom{transition:transform .18s ease;}
 
-  /* intro overlay: photos drop one by one onto the card */
-  .intro{position:fixed;inset:0;background:#0b0f16;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 1s ease;}
-  .intro-card{width:220px;height:220px;background:#fff;border:14px solid #fff;box-shadow:0 25px 70px rgba(0,0,0,.85);position:relative;overflow:hidden;}
-  .intro-card::after{content:"";position:absolute;inset:0;border:6px double #ff6600;pointer-events:none;z-index:3;}
-  .drop-pic{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0;}
-  .drop-pic:nth-child(1){animation:dropPic 0.6s 0s both}
-  .drop-pic:nth-child(2){animation:dropPic 0.6s 0.4s both}
-  .drop-pic:nth-child(3){animation:dropPic 0.6s 0.8s both}
-  .drop-pic:nth-child(4){animation:dropPic 0.6s 1.2s both}
-  .drop-pic:nth-child(5){animation:dropPic 0.6s 1.6s both}
-  @keyframes dropPic{
-    0%{transform:translateY(-120vh) rotate(-12deg);opacity:0}
-    40%{opacity:1}
-    75%{transform:translateY(0) rotate(3deg)}
-    90%{transform:translateY(0) rotate(-1deg)}
-    100%{transform:translateY(0) rotate(0deg);opacity:1}
-  }
-  .intro-text{margin-top:14px;font-size:30px;color:#ffff00;font-family:var(--impact);letter-spacing:4px;animation:fadeUp 1.2s 2.4s both;}
-  @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-  /* the overlay only exists if JS is on; without JS the page is simply there */
-  #intro{display:none;}
-  html.js-intro #intro{display:flex;}
-  html.js-intro #page{opacity:0;visibility:hidden;}
-
-  /* motion off: no shake, no auto-play drops, no marquees (JS stops those) */
+  /* motion off: no shake, no marquees (JS stops those) */
   @media (prefers-reduced-motion: reduce){
     h1{animation:none;}
-    .intro-text{animation:none;}
-    .drop-pic{animation:none;opacity:1;}
-    .intro{transition:none;}
   }
 </style>
-<script>
-  /* the overlay is a JS-only flourish: no JS, no overlay, page just shows */
-  document.documentElement.classList.add('js-intro');
-  setTimeout(function(){
-    document.documentElement.classList.remove('js-intro');
-    var ov = document.getElementById('intro');
-    if (ov) { ov.style.display = 'none'; }
-  }, 6000);
-</script>
 </head>
 <body>
 <a class="skip" href="#page">skip to the good part</a>
-<div class="intro" id="intro">
-  <div class="intro-card">
-    <img class="drop-pic" src="assets/img/gallery1.jpg" alt="drop 1"/>
-    <img class="drop-pic" src="assets/img/gallery2.jpg" alt="drop 2"/>
-    <img class="drop-pic" src="assets/img/gallery3.jpg" alt="drop 3"/>
-    <img class="drop-pic" src="assets/img/gallery4.jpg" alt="drop 4"/>
-    <img class="drop-pic" src="assets/img/gallery5.jpg" alt="drop 5"/>
-  </div>
-  <div class="intro-text">NAITIK.exe</div>
-</div>
 <main class="page" id="page">
   <div class="ticker"><marquee scrollamount="14" aria-hidden="true">!!! WELCOME !!! THIS SITE IS SO COOL IT MIGHT COOK YOUR LAPTOP (please do not sue) !!! HOT TIP: TOUCHING GRASS IS OVERRATED, STAY HERE !!! NO COOKIES BECAUSE I ATE THEM !!!</marquee></div>
 
@@ -385,18 +339,6 @@
     for (var m = 0; m < mq.length; m++) { try { mq[m].stop(); } catch (e) {} }
   }
 
-  /* reveal after the falling card lands (or immediately if motion is off) */
-  var introEl = document.getElementById('intro');
-  function reveal() {
-    if (introEl) { introEl.style.opacity = '0'; }
-    document.documentElement.classList.remove('js-intro');
-    setTimeout(function () { if (introEl) { introEl.style.display = 'none'; } }, 1000);
-  }
-  if (document.documentElement.classList.contains('js-intro')) {
-    setTimeout(reveal, RM ? 250 : 3200);
-  } else {
-    reveal();
-  }
 </script>
 </body>
 </html>
